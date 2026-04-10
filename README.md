@@ -41,7 +41,11 @@ Die Plattform richtet sich an alle Schulformen (Gymnasium, Realschule, Berufssch
 
 ### 📄 Dokumente
 
-Drag-and-Drop-Editor mit über 10 Blocktypen (Überschriften, Aufgaben, Alertboxen, Antwortzeilen, Bilder u.v.m.) und Live-PDF-Vorschau. Die PDF-Erzeugung läuft vollständig im Browser über den Typst-WASM-Compiler.
+Drag-and-Drop-Editor mit Live-PDF-Vorschau. Die PDF-Erzeugung läuft vollständig im Browser über den Typst-WASM-Compiler — kein Server nötig.
+
+**Blocktypen:** Überschriften, Absätze, Aufgaben mit Punkten und Musterlösung, Alertboxen, Antwortzeilen, Antwortboxen, Lückentext, Karopapier, Bilder mit Beschriftung, Spalten-Layout, Seitenumbruch
+
+**Export & Teilen:** PDF-Download, öffentliche Ansicht über Short-Link (`/v/{id}`), PDF-Direktlink (`/api/v/{id}/pdf`), QR-Code zum Verteilen im Unterricht
 
 <p align="center">
   <img src="screenshots/document.png" alt="Dokument-Editor" width="800">
@@ -49,7 +53,13 @@ Drag-and-Drop-Editor mit über 10 Blocktypen (Überschriften, Aufgaben, Alertbox
 
 ### ❓ Quizze
 
-Interaktive Quizze mit 11 Fragetypen — von Single-/Multiple-Choice über Zuordnung und Sortierung bis hin zu Lückentexten und Drag-and-Drop. Mit automatischer Bewertung, Prüfungsmodus (beaufsichtigte Klausuren mit Anti-Cheat) und Echtzeit-Monitoring.
+Interaktive Quizze mit 11 Fragetypen und automatischer Bewertung.
+
+**Fragetypen:** Single-Choice, Multiple-Choice, Sortierung, Kategorisierung, Kurzantwort, Langtext, Drag-and-Drop, Wörter ziehen (Text), Wörter ziehen (Bild), Lückentext, Text auf Bild
+
+**Prüfungsmodus:** Beaufsichtigte Klausuren mit Zugangscode, Anti-Cheat (Tab-Erkennung, Vollbild-Pflicht, Rechtsklick-Sperre), Echtzeit-Monitoring, verschlüsselte Schülerdaten (AES-256), Wiederherstellungscodes und automatische Bewertung mit Notenskalen
+
+**Teilen:** Öffentlicher Quiz-Link (`/q/{id}`) mit gemischten Antwortoptionen
 
 <p align="center">
   <img src="screenshots/quizzes.png" alt="Quiz-Editor" width="800">
@@ -57,7 +67,13 @@ Interaktive Quizze mit 11 Fragetypen — von Single-/Multiple-Choice über Zuord
 
 ### 🎧 Audio
 
-Audiokonversationen mit mehreren Stimmen über Text-to-Speech (13 Sprachen). Erstellte Gespräche können als WAV, Transkript, HTML oder SRT-Untertitel exportiert werden — ideal für Hörverstehensübungen.
+Audiokonversationen mit mehreren Stimmen über Text-to-Speech — ideal für Hörverstehensübungen und Dialoge.
+
+**Stimmen:** 2–4 Stimmen mit eigenen Namen und Farben, 13 Sprachen über Chatterbox API
+
+**Export:** WAV-Audio, Transkript (Text/HTML), SRT-Untertitel, JSON
+
+**Teilen:** Öffentliche Wiedergabe mit synchronisiertem Transkript (`/a/{id}`)
 
 <p align="center">
   <img src="screenshots/audio.png" alt="Audio-Editor" width="800">
@@ -65,7 +81,9 @@ Audiokonversationen mit mehreren Stimmen über Text-to-Speech (13 Sprachen). Ers
 
 ### 🃏 Karteikarten
 
-Lernsets mit Text- und Bildkarten, Kategorien und Hinweisen. Interaktive Vorschau mit Tastatursteuerung und KI-gestützter Generierung ganzer Kartensets.
+Lernsets mit Text- und Bildkarten für Vokabeln, Prüfungsvorbereitung und Wiederholung.
+
+**Funktionen:** Kategorien, Hinweise, Tastatursteuerung (Pfeiltasten, Leertaste zum Umdrehen), KI-Generierung ganzer Kartensets
 
 <p align="center">
   <img src="screenshots/flashcards.png" alt="Karteikarten-Editor" width="800">
@@ -73,29 +91,13 @@ Lernsets mit Text- und Bildkarten, Kategorien und Hinweisen. Interaktive Vorscha
 
 ---
 
-## Technologie-Stack
+## Übergreifende Funktionen
 
-| Kategorie | Technologie |
-|-----------|-------------|
-| Framework | Next.js 16, React 19, TypeScript |
-| Styling | Tailwind CSS, shadcn/ui |
-| Datenbank | PostgreSQL, Prisma, Redis |
-| PDF-Engine | Typst WASM (clientseitig) |
-| KI | Vercel AI SDK (OpenAI, Gemini, Perplexity) |
-| Echtzeit | Redis Pub/Sub + Server-Sent Events |
-| Testing | Vitest, Playwright |
-
----
-
-## Architektur
-
-```
-Blöcke bearbeiten → Typst-Code generieren → WASM-Compiler → SVG/PDF → Live-Vorschau
-```
-
-Die gesamte PDF-Kompilierung findet clientseitig im Browser statt. Dokumente werden als strukturierte JSON-Blöcke gespeichert und über einen Converter in Typst-Quellcode umgewandelt — unter Nutzung des eigenen `typ-notes`-Pakets für erweiterte Typografie (Alertboxen, Badges, Baumdiagramme, Spielkarten u.v.m.).
-
-Echtzeit-Kollaboration läuft über Redis Pub/Sub mit SSE-Streaming und automatischem Polling-Fallback.
+- **KI-Generierung** — Dokumente, Quizze, Audiokonversationen und Karteikarten können per KI erstellt werden (OpenAI, Gemini, Perplexity). Zweistufig: erst Planung, dann parallele Generierung aller Blöcke.
+- **Echtzeit-Kollaboration** — Mehrere Lehrkräfte bearbeiten gleichzeitig über Redis Pub/Sub und Server-Sent Events mit automatischem Polling-Fallback.
+- **QR-Codes & Short-Links** — Jedes Dokument, Quiz und Audio bekommt einen 8-Zeichen Short-Link zum direkten Teilen im Unterricht.
+- **Schulverwaltung** — Schulen mit Rollen (Admin/Lehrkraft), gemeinsame Bibliothek, Microsoft-OAuth-Login.
+- **DSGVO-konform** — Cookieless Analytics (PostHog), verschlüsselte Prüfungsdaten, kein Tracking ohne Einwilligung.
 
 ---
 
