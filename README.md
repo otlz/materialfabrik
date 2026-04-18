@@ -27,9 +27,15 @@
 
 ---
 
+<p align="center">
+  <video src="https://github.com/otlz/materialfabrik.de/raw/main/github-showcase/videos/preview-light.webm" autoplay loop muted playsinline width="800">
+    Ihr Browser unterstützt kein eingebettetes Video. <a href="videos/preview-light.webm">Video herunterladen</a>.
+  </video>
+</p>
+
 ## Über das Projekt
 
-**materialfabrik** ist eine Webanwendung für Lehrkräfte, mit der Arbeitsblätter, Tests, Klausuren, Quizze, Audiokonversationen und Karteikarten erstellt werden können — unterstützt durch KI-Generierung und Live-Vorschau direkt im Browser.
+**materialfabrik** ist eine Webanwendung für Lehrkräfte, mit der Arbeitsblätter, Tests, Klausuren, Quizze, Audiokonversationen, Karteikarten und interaktive Graphen erstellt werden können — unterstützt durch KI-Generierung und Live-Vorschau direkt im Browser.
 
 Die Plattform richtet sich an alle Schulformen (Gymnasium, Realschule, Berufsschule, Gesamtschule u.a.) und wird aktiv im Unterricht eingesetzt.
 
@@ -87,6 +93,20 @@ Lernsets mit Text- und Bildkarten für Vokabeln, Prüfungsvorbereitung und Wiede
 
 <p align="center">
   <img src="screenshots/flashcards.png" alt="Karteikarten-Editor" width="800">
+</p>
+
+### 📈 Graphen
+
+Interaktive 2D-Funktionsplots und 3D-Schrägbilder für Mathematik von der Mittelstufe bis zum Abitur — vollständig im Browser gerendert.
+
+**2D-Graphen:** lineare, quadratische, trigonometrische und exponentielle Funktionen, Nullstellen, Extrempunkte, Schnittpunkte, Tangenten
+
+**3D-Schrägbilder:** Körper, Pyramiden und Vektoren im Koordinatensystem — ideal für Geometrie und Vektorrechnung
+
+**Einbettung:** Graphen lassen sich direkt in Dokumente und Arbeitsblätter einfügen
+
+<p align="center">
+  <img src="screenshots/graphs.png" alt="Graphen-Editor" width="800">
 </p>
 
 ---
