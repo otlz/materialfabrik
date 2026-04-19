@@ -22,15 +22,13 @@
 </p>
 
 <p align="center">
-  <a href="https://beta.materialfabrik.de">🔗 Live-Demo</a>
+  <a href="https://materialfabrik.de">🔗 Live-Demo</a>
 </p>
 
 ---
 
 <p align="center">
-  <video src="https://github.com/otlz/materialfabrik.de/raw/main/github-showcase/videos/preview-light.webm" autoplay loop muted playsinline width="800">
-    Ihr Browser unterstützt kein eingebettetes Video. <a href="videos/preview-light.webm">Video herunterladen</a>.
-  </video>
+  <img src="videos/preview-dark.webp" alt="materialfabrik Vorschau" width="800">
 </p>
 
 ## Über das Projekt
@@ -54,7 +52,7 @@ Drag-and-Drop-Editor mit Live-PDF-Vorschau. Die PDF-Erzeugung läuft vollständi
 **Export & Teilen:** PDF-Download, öffentliche Ansicht über Short-Link (`/v/{id}`), PDF-Direktlink (`/api/v/{id}/pdf`), QR-Code zum Verteilen im Unterricht
 
 <p align="center">
-  <img src="screenshots/document.png" alt="Dokument-Editor" width="800">
+  <img src="screenshots/document_dark.png" alt="Dokument-Editor" width="800">
 </p>
 
 ### ❓ Quizze
@@ -68,7 +66,7 @@ Interaktive Quizze mit 11 Fragetypen und automatischer Bewertung.
 **Teilen:** Öffentlicher Quiz-Link (`/q/{id}`) mit gemischten Antwortoptionen
 
 <p align="center">
-  <img src="screenshots/quizzes.png" alt="Quiz-Editor" width="800">
+  <img src="screenshots/quizzes_dark.png" alt="Quiz-Editor" width="800">
 </p>
 
 ### 🎧 Audio
@@ -82,7 +80,7 @@ Audiokonversationen mit mehreren Stimmen über Text-to-Speech — ideal für Hö
 **Teilen:** Öffentliche Wiedergabe mit synchronisiertem Transkript (`/a/{id}`)
 
 <p align="center">
-  <img src="screenshots/audio.png" alt="Audio-Editor" width="800">
+  <img src="screenshots/audio_dark.png" alt="Audio-Editor" width="800">
 </p>
 
 ### 🃏 Karteikarten
@@ -92,7 +90,7 @@ Lernsets mit Text- und Bildkarten für Vokabeln, Prüfungsvorbereitung und Wiede
 **Funktionen:** Kategorien, Hinweise, Tastatursteuerung (Pfeiltasten, Leertaste zum Umdrehen), KI-Generierung ganzer Kartensets
 
 <p align="center">
-  <img src="screenshots/flashcards.png" alt="Karteikarten-Editor" width="800">
+  <img src="screenshots/flashcards_dark.png" alt="Karteikarten-Editor" width="800">
 </p>
 
 ### 📈 Graphen
@@ -106,7 +104,7 @@ Interaktive 2D-Funktionsplots und 3D-Schrägbilder für Mathematik von der Mitte
 **Einbettung:** Graphen lassen sich direkt in Dokumente und Arbeitsblätter einfügen
 
 <p align="center">
-  <img src="screenshots/graphs.png" alt="Graphen-Editor" width="800">
+  <img src="screenshots/graphs_dark.png" alt="Graphen-Editor" width="800">
 </p>
 
 ---
